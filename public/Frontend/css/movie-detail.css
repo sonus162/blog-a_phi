@@ -1,0 +1,207 @@
+.second {
+    margin-top: 3.5em;
+}
+.img-movie img{
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+.img-movie {
+    position: relative;
+    display: inline-block;
+}
+.img-movie .btn-play {
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    border-radius: 50%;
+    background: #f11b1b;
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    left: 50%;
+    margin-left: -30px;
+    border: 5px solid #fff;
+    display: inline-block;
+    box-shadow: 0 0 40px 5px #eaa846;
+}
+.img-movie .btn-play i {
+    font-size: 60px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.img-movie .btn-play:before, .img-movie .btn-play:after {
+    opacity: 0;
+    box-sizing: border-box;
+    content: "\0020";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 50px #fff, inset 0 0 50px #fff;
+}
+.img-movie .btn-play:before {
+    z-index: 2;
+    -webkit-animation: gogoloader 2s infinite;
+    -moz-animation: gogoloader 2s infinite;
+    -o-animation: gogoloader 2s infinite;
+    animation: gogoloader 2s infinite;
+}
+
+.img-movie .btn-play:after {
+    z-index: 1;
+    -webkit-animation: gogoloader 2s infinite 1s;
+    -moz-animation: gogoloader 2s infinite 1s;
+    -o-animation: gogoloader 2s infinite 1s;
+    animation: gogoloader 2s infinite 1s;
+}
+.thumb-movie:hover {
+    filter: grayscale(100%)!important;
+    -webkit-filter: grayscale(100%)!important;
+    transition: .7s all;
+}
+@keyframes gogoloader {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.name-movie {
+    font-size: 28px;
+    color: #ff7171;
+}
+
+.rating-star {
+    list-style-type:none;
+    margin-bottom: 0;
+    padding: 0;
+}
+.rating-star li {
+    font-size: 1.5em;
+    color:#e50813;
+    cursor: pointer;
+}
+.rating-number {
+    font-size: 1.5em;
+}
+
+.movie-info .movie-data {
+    list-style-type: none;
+    padding:0;
+}
+.movie-info .movie-data li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #a93338;
+}
+.movie-info .movie-data li span:first-child {
+    font-weight: bold;
+}
+.movie-info{
+    padding: 16px 16px;
+    background: #00000026;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 1px transparent, 0 1px 10px rgb(225 225 225 / 86%);
+}
+
+.movie-info .movie-data li a {
+    color : #e88218;
+}
+.movie-info .movie-data li a:hover {
+    color: #ff7171;
+}
+.heading-1 i {
+    color:#ff7171;
+}
+.heading-1 {
+    font-size: 20px;
+    color:  #fff;
+    text-transform: uppercase;
+    position:relative;
+}
+.heading-1::after{
+    content:'';
+    position: absolute;
+    background: rgb(2,0,36);
+    background: linear-gradient(103deg, rgba(2,0,36,1) 0%, rgba(229,8,16,1) 0%, rgba(0,0,0,1) 90%);
+    width: 100%;
+    height: 1px;
+    bottom:0;
+    left: 0;
+}
+
+.heading-1::before {
+    content: '';
+    font-size: 5px;
+    position: absolute;
+}
+.trailer iframe{
+    width: 100%;
+    height: 400px;
+}
+
+.tags .title {
+    color: #ff7171;
+    font-size: 23px;
+    font-weight: 600;
+}
+.tags .list-tag {
+    list-style-type: none;
+    margin: 0;
+}
+.list-tag li {
+    position: relative;
+    font-size: 18px;
+}
+.list-tag li a {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.list-tag li:not(:last-child)::after{
+    content: ',';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.list-tag li a:hover {
+    color: #ff7171;
+}
+
+input.form-control, textarea.form-control,input.form-control:focus,  textarea.form-control:focus {
+    background: var(--body-bg);
+    border: 0.063em solid #404043;
+    border-radius: 0;
+    color: #fff;
+}
+input.form-control:focus,textarea.form-control:focus {
+    box-shadow: rgba(242, 27, 27, 0.24) 0px 3px 8px;
+}
+.btn {
+    padding: 5px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: #e50813;
+    color: #fff;
+    border: none;
+}
+
+label.error, .error_star {
+    position: absolute;
+    bottom: -5px;
+    right: 30px;
+    color: red;
+}
+.star-rating {
+    position: relative;
+}

@@ -1,0 +1,65 @@
+.create {
+    padding: 6px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.btn-action {
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+table.dataTable thead .disabled::before
+{
+    display: none!important;
+}
+.select2-btn {
+    margin-right: 35px;
+}
+.select2-container {
+    width: 100%!important;
+}
+.filter .select2-container {
+    width: unset;
+}
+.table td, .table th {
+    vertical-align: middle;
+}
+.bg-login {
+    background: url('../images/slide.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.password-admin {
+    position: relative;
+}
+.show-pass {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    display: inline-block;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.show-pass i {
+    font-size: 17px;
+}
+.title_article {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3ec396;
+}
+.yellow {
+    color: #f9bc0b;
+}
+.timeline-body-title {
+    font-weight: 600;
+    margin-right: 5px;
+    font-size: 19px;
+}
+.title_status {
+    color: #3ec396;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+table.dataTable.nowrap td {
+    white-space: normal;
+}
