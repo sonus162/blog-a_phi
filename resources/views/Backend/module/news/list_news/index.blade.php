@@ -48,7 +48,7 @@
                                 </td>
                                 <td width="5%">{{ $item['id'] }}</td>
                                 <td width="10%">
-                                    <img src="{{ asset($pathUpload.$item['thumbnail'])}}" height="50px" alt="{{ $item['name'] }}">
+                                    <img src="{{ asset(@$pathUpload.@$item['thumbnail'] ? @$pathUpload.@$item['thumbnail'] : 'Backend/assets/images/default.jpg')}}" height="50px" alt="{{ $item['name'] }}">
                                 </td>
                                 <td><a href="{{ route($controllerName.'/form', ['id' => $item['id']])}}">{{ $item['name']}}</a></td>
                                 <td width="15%">

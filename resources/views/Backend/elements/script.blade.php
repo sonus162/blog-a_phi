@@ -26,6 +26,7 @@
  <script src="{{ asset('Backend/assets/libs/select2/select2.min.js')}}"></script>
  <script src="{{ asset('Backend/assets/libs/bootstrap-filestyle2/bootstrap-filestyle.min.js')}}"></script>
  <script src="{{ asset('Backend/assets/libs/ckeditor/ckeditor.js')}}"></script>
+ <script src="{{ asset('Backend/assets/libs/ckfinder/ckfinder.js')}}"></script>
  <script src="{{ asset('Backend/assets/libs/custombox/custombox.min.js')}}"></script>
  <script src="{{ asset('Backend/assets/libs/jquery-toast/jquery.toast.min.js')}}"></script>
 

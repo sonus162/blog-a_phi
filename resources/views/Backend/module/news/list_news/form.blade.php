@@ -74,15 +74,17 @@
                             <div class="form-group">
                                 <label>Ảnh đại diện</label>
                                 <div class="row">
-                                    <div class="col-md-8">
-                                        <input type="file" name="thumbnail" class="filestyle" data-btnClass="btn-primary">
+                                    <div class="col-md-9">
+                                        <input type="file" id="thumbnail" name="thumbnail" class="filestyle" data-btnClass="btn-primary" onchange="preview.src=window.URL.createObjectURL(this.files[0])">
                                         <input type="hidden" name="thumbnailHidden" value="{{ @$item['thumbnail'] }}">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         @php
                                             $pathUpload = @$item['thumbnail'] ?  URL::pathUpload(explode('.',@$item['thumbnail'])[0],'news'): '';
                                         @endphp
-                                        <img src="{{ asset(@$pathUpload.@$item['thumbnail']) }}" alt="" height="80px">
+                                        <label for="thumbnail">
+                                            <img id="preview" src="{{ asset(@$pathUpload.@$item['thumbnail'] ?  @$pathUpload.@$item['thumbnail'] : 'Backend/assets/images/default.jpg' ) }}" alt="" height="60px">
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -116,6 +118,11 @@
 @endsection
 @push('scripts')
     <script>
-        CKEDITOR.replace('content');
+        editor = CKEDITOR.replace('content');
+        CKEDITOR.replace( 'content', {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        } );
+        CKFinder.setupCKEditor( editor );
     </script>
 @endpush

@@ -49,69 +49,12 @@ Route::namespace('Frontend')->group(function () {
 $prefixAdmin = 'admin';
 Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
 
-    // Route::group(['middleware' => 'admin'], function () {
+    Route::group(['middleware' => 'admin'], function () {
         $prefix         = '';
         $controllerName = 'dashboard';
         Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
             $controller = ucfirst($controllerName)  . 'Controller@';
             Route::get('/',                             [ 'as' => $controllerName,                  'uses' => $controller . 'index' ]);
-        });
-
-        // Fim
-        $prefix = 'film';
-        $controllerName = 'film';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',                              [ 'as' => $controllerName,                  'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',                    [ 'as' => $controllerName.'/form',          'uses' => $controller . 'form' ]);
-            Route::post('/save',                         [ 'as' => $controllerName.'/save',          'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',                  [ 'as' => $controllerName.'/delete',        'uses' => $controller . 'delete' ]);
-            Route::get('/changeDisplay-{status}/{id?}',  [ 'as' => $controllerName.'/changeDisplay',  'uses' => $controller . 'changeDisplay' ]);
-            Route::post('/addFilm',                         [ 'as' => $controllerName.'/addFilm',          'uses' => $controller . 'addFilm' ]);
-        });
-
-        // danh mục Film
-        $prefix = 'filmCategory';
-        $controllerName = 'filmCategory';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
-        });
-
-        // Quốc gia
-        $prefix = 'country';
-        $controllerName = 'country';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                'uses' => $controller . 'delete' ]);
-        });
-
-        // Thể loại
-        $prefix = 'genre';
-        $controllerName = 'genre';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                'uses' => $controller . 'delete' ]);
-        });
-
-        // Thể loại
-        $prefix = 'episodes';
-        $controllerName = 'episodes';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                'uses' => $controller . 'delete' ]);
         });
 
          // Banner - Slide
@@ -162,32 +105,7 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
             Route::get('/change-status-{status}/{id?}', [ 'as' => $controllerName.'/change-status',                  'uses' => $controller . 'changeStatus' ]);
         });
 
-        $prefix = 'member';
-        $controllerName = 'member';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',              [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',    [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',         [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::post('/change-password',         [ 'as' => $controllerName.'/change-password',                  'uses' => $controller . 'changePassword' ]);
-            Route::get('/delete/{id?}',  [ 'as' => $controllerName.'/delete',                'uses' => $controller . 'delete' ]);
-            Route::get('/change-status-{status}/{id?}', [ 'as' => $controllerName.'/change-status',                  'uses' => $controller . 'changeStatus' ]);
-        });
-
-        $prefix = 'comment';
-        $controllerName = 'comment';
-        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-            $controller = ucfirst($controllerName)  . 'Controller@';
-            Route::get('/',              [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',    [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
-            Route::post('/save',         [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::post('/change-password',         [ 'as' => $controllerName.'/change-password',                  'uses' => $controller . 'changePassword' ]);
-            Route::get('/delete/{id?}',  [ 'as' => $controllerName.'/delete',                'uses' => $controller . 'delete' ]);
-            Route::get('/change-status-{status}/{id?}', [ 'as' => $controllerName.'/change-status',                  'uses' => $controller . 'changeStatus' ]);
-            Route::get('/change-statusDT-{status}/{id?}', [ 'as' => $controllerName.'/change-statusDT',                  'uses' => $controller . 'changeStatusDT' ]);
-        });
-
-    // });
+    });
     $prefix = '';
     $controllerName = 'auth';
     Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
