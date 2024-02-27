@@ -15,7 +15,7 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-book"></i>
-                        <span> Nội dung </span>
+                        <span> Bài viết </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
@@ -25,12 +25,22 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="fe-image"></i>
-                        <span> Hình ảnh </span>
+                        <i class="fe-book"></i>
+                        <span> Dịch vụ </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{ route('banner')}}">Slide trang chủ</a></li>
+                        <li><a href="{{ route('service')}}">Danh sách Dịch vụ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fe-image"></i>
+                        <span> Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('s')}}">Section trang chủ</a></li>
                     </ul>
                 </li>
                 <li>

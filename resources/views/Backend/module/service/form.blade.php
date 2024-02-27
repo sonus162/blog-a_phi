@@ -33,46 +33,25 @@
                     <div class="row">
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="Name" class="select2-btn">Danh mục</label>
-                                <select class="form-control select2" name="id_news_category">
-                                    <option value="">Chọn danh mục</option>
-                                    @php
-                                        foreach ($news_cate as $key => $value) {
-                                            echo ' <option value="'.$value['id'].'" '.(old('id_news_category')==$value['id'] || $value['id'] == @$item['id_news_category'] ? 'selected' : '').'>'.$value['name'].'</option>';
-                                        }
-                                    @endphp
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="Name">Tên Bài viết</label>
-                                <input type="text" class="form-control" name="name" id="name_danhmuc" value="{{ @$item['name'] ?  @$item['name'] : old('name')}}" placeholder="">
+                                <label for="Name">Tiêu đề</label>
+                                <input type="text" class="form-control" name="name" id="name_danhmuc" value="{{ @$item['name'] ? @$item['name'] : old('name');}}" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="title">Title SEO</label>
-                                <input type="text" class="form-control" name="title" id="title" value="{{ @$item['title']}}" placeholder="">
+                                <label for="star">Số sao</label>
+                                <input type="text" class="form-control" name="star" id="star" value="{{ @$item['star'] ? @$item['star'] : old('star')}}" placeholder="">
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="Name" class="select2-btn">Mô tả</label>
-                                <textarea name="desc_short" class="form-control" rows="3">{{ @$item['desc_short'] }}</textarea>
+                                <label for="price">Giá</label>
+                                <input type="text" class="form-control" name="price" id="price" value="{{ @$item['price'] ? @$item['price'] : old('price')}}" placeholder="">
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="description" class="select2-btn">Description</label>
-                                <textarea name="description" class="form-control" rows="3">{{ @$item['description'] }}</textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label>Ảnh đại diện</label>
+                                <label>Ảnh đại diện (370x278)</label>
                                 <div class="row">
                                     <div class="col-md-9">
                                         <input type="file" id="thumbnail" name="thumbnail" class="filestyle" data-btnClass="btn-primary" onchange="preview.src=window.URL.createObjectURL(this.files[0])">
@@ -91,14 +70,8 @@
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="keyword" class="select2-btn">Key word</label>
-                                <input type="text" class="form-control" name="keyword" id="keyword" value="{{ @$item['keyword']}}" placeholder="">
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-12">
-                            <div class="form-group">
-                                <label for="Name">Nội dung</label>
-                                <textarea class="form-control" id="content" name="content">{!! @$item['content'] !!}</textarea>
+                                <label for="Name" class="select2-btn">Mô tả</label>
+                                <textarea name="desc_short" class="form-control" rows="3">{{ @$item['desc_short'] ? @$item['desc_short'] : old('desc_short') }}</textarea>
                             </div>
                         </div>
                     </div>
