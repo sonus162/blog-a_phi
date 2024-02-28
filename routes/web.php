@@ -89,6 +89,8 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
             Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
             Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
             Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
+            Route::get('/changeDisplay-{status}/{id?}',  [ 'as' => $controllerName.'/changeDisplay',  'uses' => $controller . 'changeDisplay' ]);
+            Route::get('/changeIsHome-{status}/{id?}',  [ 'as' => $controllerName.'/changeIsHome',  'uses' => $controller . 'changeIsHome' ]);
         });
 
         // Dịch vụ
@@ -100,17 +102,27 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
              Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
              Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
              Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
+             Route::get('/changeDisplay-{status}/{id?}',  [ 'as' => $controllerName.'/changeDisplay',  'uses' => $controller . 'changeDisplay' ]);
+             Route::get('/changeIsHome-{status}/{id?}',  [ 'as' => $controllerName.'/changeIsHome',  'uses' => $controller . 'changeIsHome' ]);
         });
-        // Dịch vụ
+
+        // Section trang chủ
         $prefix = 'section';
-        $controllerName = 'service';
+        $controllerName = 'section';
         Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
             $controller = ucfirst($controllerName)  . 'Controller@';
             Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
-            Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
             Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
-            Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
-         });
+        });
+
+        // Thông tin web
+        $prefix = 'info';
+        $controllerName = 'info';
+        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
+            $controller = ucfirst($controllerName)  . 'Controller@';
+            Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
+            Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
+        });
 
         // User
         $prefix = 'user';

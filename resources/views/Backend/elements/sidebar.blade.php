@@ -40,7 +40,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{ route('s')}}">Section trang chủ</a></li>
+                        <li><a href="{{ route('section')}}">Section trang chủ</a></li>
                     </ul>
                 </li>
                 <li>
@@ -60,7 +60,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="#">Thông tin web</a></li>
+                        <li><a href="{{route('info')}}">Thông tin web</a></li>
                         <li><a href="#">Headline</a></li>
                     </ul>
                 </li>

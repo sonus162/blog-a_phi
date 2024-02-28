@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FilmCategoryRequest extends FormRequest
+class InfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,13 @@ class FilmCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
         ];
     }
-
 
     public function messages(){
         return [
-            'name.required' => 'Vui lòng nhập tên danh mục',
-            'name.min' => 'Tên tối thiểu 3 ký tự'
+            'name.required' => 'Vui lòng nhập tên doanh nghiệp',
         ];
     }
-
-
 }

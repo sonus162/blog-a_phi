@@ -28,6 +28,8 @@
                             <th width="5%">ID</th>
                             <th width="10%">Ảnh đại diện</th>
                             <th>Tiêu đề</th>
+                            <th width="5%">Trang chủ</th>
+                            <th width="5%">Hiển thị</th>
                             <th width="15%">Chức năng</th>
                         </tr>
                     </thead>
@@ -51,6 +53,18 @@
                                     <img src="{{ asset( @$item['thumbnail'] ? @$pathUpload.@$item['thumbnail'] : 'Backend/assets/images/default.jpg')}}" height="50px" alt="{{ $item['name'] }}">
                                 </td>
                                 <td><a href="{{ route($controllerName.'/form', ['id' => $item['id']])}}">{{ $item['name']}}</a></td>
+                                <td width="5%" style="text-align:center;">
+                                    <div class="checkbox checkbox-primary">
+                                        <input id="checkbox_ishome{{ $key+1 }}" type="checkbox" data-id="{{ $item['id'] }}" name="check-display" {{ @$item['is_home'] == 1 ? 'checked' : '';}} class="change-is_home" data-url="{{route($controllerName.'/changeIsHome', ['status' => $item['is_home'] ? $item['is_home'] : 0,'id' => $item['id']])}}">
+                                        <label for="checkbox_ishome{{ $key+1 }}"></label>
+                                    </div>
+                                </td>
+                                <td width="5%" style="text-align:center;">
+                                    <div class="checkbox checkbox-primary">
+                                        <input id="checkbox_display{{ $key+1 }}" type="checkbox" data-id="{{ $item['id'] }}" name="check-display" {{ @$item['display'] == 1 ? 'checked' : '';}} class="change-display" data-url="{{route($controllerName.'/changeDisplay', ['status' => $item['display'],'id' => $item['id']])}}">
+                                        <label for="checkbox_display{{ $key+1 }}"></label>
+                                    </div>
+                                </td>
                                 <td width="15%">
                                     <a href="{{ route($controllerName.'/form', ['id' => $item['id']])}}" class="btn-action btn-primary">Sửa</a>
                                     <a href="javascript:;"  data-url="{{ route($controllerName.'/delete', ['id' => $item['id']])}}" class="btn-action btn-danger sa-warning">Xóa</a>

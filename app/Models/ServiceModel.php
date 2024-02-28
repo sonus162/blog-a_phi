@@ -43,9 +43,9 @@ class ServiceModel extends Model
 
     public function saveItem($params = null, $option = null){
 
-        $params['slug'] = Str::slug($params['name']);
 
         if($option['task'] == 'add-item'){
+            $params['slug'] = Str::slug($params['name']);
             $params['display'] = 1;
             $params['user_created'] = 'Admin';
             $params['created_at'] = date('Y-m-d H:m:s',time());
@@ -55,6 +55,7 @@ class ServiceModel extends Model
             self::insert($this->prepareParams($params));
         }
         if($option['task'] == 'edit-item'){
+            $params['slug'] = Str::slug($params['name']);
             if(!empty($params['thumbnail'])) {
                 if($params['thumbnailHidden']){
                     $this->removeThumb($params['thumbnailHidden']);
@@ -62,6 +63,18 @@ class ServiceModel extends Model
                 $params['thumbnail'] = $this->uploadThumb($params['thumbnail']);
             }
             self::where('id', $params['id'])->update($this->prepareParams($params));
+        }
+        if ($option['task'] == 'change-display') {
+            $display = $params['display'] == 1 ? 0 : 1;
+            self::where('id', $params['id'])->update(['display' => $display]);
+
+            return $display;
+        }
+        if ($option['task'] == 'change-is_home') {
+            $is_home = $params['is_home'] == 1 ? 0 : 1;
+            self::where('id', $params['id'])->update(['is_home' => $is_home]);
+
+            return $is_home;
         }
     }
 

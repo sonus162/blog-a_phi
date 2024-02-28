@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenreRequest extends FormRequest
+class SectionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class GenreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:2'
-        ];
-    }
-
-    public function messages(){
-        return [
-            'name.required' => 'Vui lòng nhập Tên',
-            'name.min' => 'Tên tối thiểu 2 ký tự'
+            //
         ];
     }
 }

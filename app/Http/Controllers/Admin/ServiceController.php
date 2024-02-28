@@ -74,4 +74,30 @@ class ServiceController extends Controller
         }
         return 123;
     }
+
+    public function changeDisplay(Request $request){
+        $params['id'] = $request->id;
+        $params['display'] = $request->status;
+        $this->model->saveItem($params, ['task' => 'change-display']);
+        $display =  $request->display == 1 ? 0 : 1;
+
+        $link = route($this->controllerName.'/changeDisplay',['status' => $display, 'id' => $params['id']]);
+        return response()->json([
+            'status' => 'success',
+            'link' => $link
+        ]);
+    }
+
+    public function changeIsHome(Request $request){
+        $params['id'] = $request->id;
+        $params['is_home'] = $request->status;
+        $this->model->saveItem($params, ['task' => 'change-is_home']);
+        $is_home =  $request->is_home == 1 ? 0 : 1;
+
+        $link = route($this->controllerName.'/changeIsHome',['status' => $is_home, 'id' => $params['id']]);
+        return response()->json([
+            'status' => 'success',
+            'link' => $link
+        ]);
+    }
 }
