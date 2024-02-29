@@ -124,6 +124,18 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
             Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
         });
 
+        // menu seo
+        $prefix = 'menuSeo';
+        $controllerName = 'menuSeo';
+        Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
+             $controller = ucfirst($controllerName)  . 'Controller@';
+             Route::get('/',               [ 'as' => $controllerName,                          'uses' => $controller . 'index' ]);
+             Route::get('/form/{id?}',     [ 'as' => $controllerName.'/form',                  'uses' => $controller . 'form' ]);
+             Route::post('/save',          [ 'as' => $controllerName.'/save',                  'uses' => $controller . 'save' ]);
+             Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
+             Route::get('/changeDisplay-{status}/{id?}',  [ 'as' => $controllerName.'/changeDisplay',  'uses' => $controller . 'changeDisplay' ]);
+        });
+
         // User
         $prefix = 'user';
         $controllerName = 'user';

@@ -61,6 +61,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="{{route('info')}}">Thông tin web</a></li>
+                        <li><a href="{{route('menuSeo')}}">Cấu hình Menu</a></li>
                         <li><a href="#">Headline</a></li>
                     </ul>
                 </li>

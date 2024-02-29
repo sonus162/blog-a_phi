@@ -16,15 +16,6 @@ class HeaderController extends Controller
         $data = [];
         $params = [];
 
-        $FilmCategoryModel = new FilmCategoryModel();
-        $data['cate_film'] = $FilmCategoryModel->listItem(['columns' => ['id','name','slug']], ['task' => 'frontend-listitem']);
-
-        $GenreModel = new GenreModel();
-        $data['genre'] = $GenreModel->listItem(['columns' => ['id','name','slug']], ['task' => 'frontend-listitem']);
-
-        $CountryModel = new CountryModel();
-        $data['country'] = $CountryModel->listItem(['columns' => ['id','name','slug']], ['task' => 'frontend-listitem']);
-
 
         return $data;
     }
