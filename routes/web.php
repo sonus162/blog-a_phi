@@ -26,16 +26,14 @@ Route::namespace('Frontend')->group(function () {
     });
 
     Route::get('/header', 'HeaderController@show');
-    Route::get('phim.html', 'FilmController@index')->name('film.index');
-    Route::get('phim/{slug}.html', 'FilmController@detail')->name('film.detail');
-    Route::get('xem-phim/{name_film}/{eps}.html', 'FilmController@watching')->where(['slug' => '[a-z\-]+', 'id' => '[0-9]+'])->name('film.watching');
-    Route::get('{type}/{slug}.html', 'FilmController@list')->name('film.list');
+    // Route::get('phim.html', 'FilmController@index')->name('film.index');
+    // Route::get('phim/{slug}.html', 'FilmController@detail')->name('film.detail');
+    // Route::get('xem-phim/{name_film}/{eps}.html', 'FilmController@watching')->where(['slug' => '[a-z\-]+', 'id' => '[0-9]+'])->name('film.watching');
+    // Route::get('{type}/{slug}.html', 'FilmController@list')->name('film.list');
 
-    Route::get('tin-tuc.html', 'NewsController@index')->name('news.index');
-    Route::get('tin-tuc/{slug}', 'NewsController@detail')->name('news.detail');
-    Route::post('binh-luan','CommentController@comment')->name('binh-luan');
-
-
+    Route::get('bai-viet.html', 'NewsController@index')->name('news.index');
+    Route::get('dich-vu.html', 'ServiceController@index')->name('service.index');
+    Route::get('bai-viet/{slug}-{id}.html', 'NewsController@detail')->where(['slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+'])->name('news.detail');
 
     // Route::get('quoc-gia/{slug}.html', 'FilmController@list');
     // Route::get('the-loai/{slug}.html', 'FilmController@list');
@@ -91,6 +89,7 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin'], function () {
             Route::get('/delete/{id?}',   [ 'as' => $controllerName.'/delete',                 'uses' => $controller . 'delete' ]);
             Route::get('/changeDisplay-{status}/{id?}',  [ 'as' => $controllerName.'/changeDisplay',  'uses' => $controller . 'changeDisplay' ]);
             Route::get('/changeIsHome-{status}/{id?}',  [ 'as' => $controllerName.'/changeIsHome',  'uses' => $controller . 'changeIsHome' ]);
+            Route::get('/changeIsSidebar-{status}/{id?}',  [ 'as' => $controllerName.'/changeIsSidebar',  'uses' => $controller . 'changeIsSidebar' ]);
         });
 
         // Dịch vụ

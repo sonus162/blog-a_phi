@@ -28,6 +28,9 @@ class NewsModel extends Model
         if($options['task'] == 'frontend-getList'){
             $result = self::select($columns)->where('display', 1)->paginate(6);
         }
+        if($options['task'] == 'list-sidebar'){
+            $result = self::select($columns)->where('display', 1)->where('is_sidebar',1)->get();
+        }
 
         $result = $result->toArray();
 
@@ -35,7 +38,11 @@ class NewsModel extends Model
     }
 
     public function getItem($params=null, $option = null){
+        $result = [];
         if($option['task'] == 'get-item'){
+            $result = self::where('id',$params['id'])->get()->toArray();
+        }
+        if($option['task'] == 'get-frontend'){
             $result = self::where('id',$params['id'])->get()->toArray();
         }
         return $result;
@@ -75,6 +82,12 @@ class NewsModel extends Model
             self::where('id', $params['id'])->update(['is_home' => $is_home]);
 
             return $is_home;
+        }
+        if ($option['task'] == 'change-is_sidebar') {
+            $is_sidebar = $params['is_sidebar'] == 1 ? 0 : 1;
+            self::where('id', $params['id'])->update(['is_sidebar' => $is_sidebar]);
+
+            return $is_sidebar;
         }
     }
 

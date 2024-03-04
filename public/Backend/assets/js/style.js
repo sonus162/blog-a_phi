@@ -39,4 +39,17 @@ $(document).ready(function () {
             },
         });
     });
+
+    $(".change-is_sidebar").click(function () {
+        let url = $(this).data("url");
+        console.log(url);
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "dataType",
+            success: function (response) {
+                $(this).data("url", response.link);
+            },
+        });
+    });
 });

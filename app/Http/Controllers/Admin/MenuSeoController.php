@@ -25,7 +25,6 @@ class MenuSeoController extends Controller
     public function index(){
 
         $listItems = $this->model->listItem($this->params, ['task' => 'admin-listitem']);
-
         return view('Backend.module.menu_seo.index',[
             'listItems' => $listItems
         ]);

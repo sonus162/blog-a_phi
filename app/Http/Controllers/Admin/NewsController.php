@@ -107,4 +107,16 @@ class NewsController extends Controller
             'link' => $link
         ]);
     }
+    public function changeIsSidebar(Request $request){
+        $params['id'] = $request->id;
+        $params['is_sidebar'] = $request->status;
+        $this->model->saveItem($params, ['task' => 'change-is_sidebar']);
+        $is_sidebar =  $request->is_sidebar == 1 ? 0 : 1;
+
+        $link = route($this->controllerName.'/changeIsHome',['status' => $is_sidebar, 'id' => $params['id']]);
+        return response()->json([
+            'status' => 'success',
+            'link' => $link
+        ]);
+    }
 }

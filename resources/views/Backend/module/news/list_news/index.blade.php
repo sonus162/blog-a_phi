@@ -29,6 +29,7 @@
                             <th width="10%">Ảnh đại diện</th>
                             <th>Tên bài viết</th>
                             <th width="5%">Trang chủ</th>
+                            <th width="5%">Sidebar</th>
                             <th width="5%">Hiển thị</th>
                             <th width="15%">Chức năng</th>
                         </tr>
@@ -57,6 +58,12 @@
                                     <div class="checkbox checkbox-primary">
                                         <input id="checkbox_ishome{{ $key+1 }}" type="checkbox" data-id="{{ $item['id'] }}" name="check-display" {{ @$item['is_home'] == 1 ? 'checked' : '';}} class="change-is_home" data-url="{{route($controllerName.'/changeIsHome', ['status' => $item['is_home'] ? $item['is_home'] : 0,'id' => $item['id']])}}">
                                         <label for="checkbox_ishome{{ $key+1 }}"></label>
+                                    </div>
+                                </td>
+                                <td width="5%" style="text-align:center;">
+                                    <div class="checkbox checkbox-primary">
+                                        <input id="checkbox_is-sidebar{{ $key+1 }}" type="checkbox" data-id="{{ $item['id'] }}" name="check-sidebar" {{ @$item['is_sidebar'] == 1 ? 'checked' : '';}} class="change-is_sidebar" data-url="{{route($controllerName.'/changeIsSidebar', ['status' => $item['is_sidebar'] ? $item['is_sidebar'] : 0,'id' => $item['id']])}}">
+                                        <label for="checkbox_is-sidebar{{ $key+1 }}"></label>
                                     </div>
                                 </td>
                                 <td width="5%" style="text-align:center;">

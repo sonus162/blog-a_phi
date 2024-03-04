@@ -26,7 +26,7 @@ class MenuSeoModel extends Model
         }
 
         if($options['task'] == 'frontend-getList'){
-            $result = self::select($columns)->where('display', 1)->paginate(6);
+            $result = self::select($columns)->where('display', 1)->get();
         }
 
         $result = $result->toArray();
