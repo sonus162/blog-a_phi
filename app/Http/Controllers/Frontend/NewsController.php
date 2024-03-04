@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
+use App\Models\MenuSeoModel;
 // use Illuminate\Http\Request;
 use App\Models\NewsModel;
 
 class NewsController extends Controller
 {
     private $model;
+    private $params;
     public $url;
 
     public function __construct()
@@ -22,6 +24,11 @@ class NewsController extends Controller
 
         $data['list'] = $this->model->listItem(['columns' => ['id','name','slug','thumbnail','desc_short','user_created', 'created_at']], ['task' => 'frontend-getList']);
         $data['url'] = $this->url;
+        $MenuSeoModel = new MenuSeoModel();
+        $data['menu'] = $MenuSeoModel->getItem(['id' => 2], ['task' => 'get-item']);
+        if(!empty($data['menu'])){
+            $data['menu'][1] = $data['menu'][0];
+        }
 
         return view('Frontend.pages.news.list', compact('data'));
     }

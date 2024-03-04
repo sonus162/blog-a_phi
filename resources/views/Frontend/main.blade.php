@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    @include('Frontend.elements.head')
+    @include('Frontend.elements.meta')
     @stack('css')
+    @include('Frontend.elements.css')
 </head>
 <body>
     <!-- Header -->

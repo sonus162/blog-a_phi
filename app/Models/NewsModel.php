@@ -26,7 +26,7 @@ class NewsModel extends Model
         }
 
         if($options['task'] == 'frontend-getList'){
-            $result = self::select($columns)->where('display', 1)->paginate(6);
+            $result = self::select($columns)->where('display', 1)->paginate(9);
         }
         if($options['task'] == 'list-sidebar'){
             $result = self::select($columns)->where('display', 1)->where('is_sidebar',1)->get();
