@@ -1,4 +1,6 @@
-## Run Project
-// run php artisan serve
-// run php artisan migrate ( create database).
+# Blog web
+## _How to run project_
+
+- Run php artisan serve
+- Run php artisan migrate (create database)
 
